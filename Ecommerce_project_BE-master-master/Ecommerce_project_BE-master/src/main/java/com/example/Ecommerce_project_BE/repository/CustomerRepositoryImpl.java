@@ -32,4 +32,9 @@ public class CustomerRepositoryImpl implements CustomerRepository{
         String sql = "SELECT * FROM " + CUSTOMER_TABLE_NAME;
         return jdbcTemplate.query(sql, new CustomerMapper());
     }
+    @Override
+    public Customer findCustomerByUsername(String username) {
+        String sql = "SELECT * FROM " + CUSTOMER_TABLE_NAME + " WHERE username = ?";
+        return jdbcTemplate.queryForObject(sql, new CustomerMapper(), username);
+    }
 }

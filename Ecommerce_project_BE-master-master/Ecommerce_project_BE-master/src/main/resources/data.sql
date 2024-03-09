@@ -1,11 +1,10 @@
--- Drop tables if they already exist to avoid conflicts
 DROP TABLE IF EXISTS favorite;
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS item;
 DROP TABLE IF EXISTS customer;
 
--- Create customer table
+
 CREATE TABLE customer (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
@@ -18,7 +17,7 @@ CREATE TABLE customer (
     password VARCHAR(255) NOT NULL
 );
 
--- Create item table
+
 CREATE TABLE item (
     item_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE item (
     quantity INT NOT NULL DEFAULT 0
 );
 
--- Create orders table
+
 CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
@@ -38,7 +37,7 @@ CREATE TABLE orders (
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
--- Create order_items table
+
 CREATE TABLE order_items (
     order_id INT,
     item_id INT,
@@ -48,7 +47,7 @@ CREATE TABLE order_items (
     PRIMARY KEY (order_id, item_id)
 );
 
--- Create favorite table
+
 CREATE TABLE favorite (
     customer_id INT NOT NULL,
     item_id INT NOT NULL,
@@ -57,13 +56,13 @@ CREATE TABLE favorite (
     FOREIGN KEY (item_id) REFERENCES item(item_id)
 );
 
--- Sample data insertion for customer
+
 INSERT INTO customer (username, first_name, last_name, email, phone, address_country, address_city, password)
 VALUES
 ('jdoe', 'John', 'Doe', 'johndoe@example.com', '555-1234', 'CountryX', 'CityY', 'hashed_password1'),
 ('msmith', 'Mary', 'Smith', 'marysmith@example.com', '555-5678', 'CountryZ', 'CityA', 'hashed_password2');
 
--- Sample data insertion for item
+
 INSERT INTO item (title, photo_url, price, quantity)
 VALUES
 ('Laptop', 'https://media.istockphoto.com/id/1457961412/photo/laptop-isolated-on-white-background-with-two-clipping-paths-included-realistic-3d-render.jpg?s=2048x2048&w=is&k=20&c=5OA6gx3Wv6dkepWxsuO_HXpyJ207t3Wvmo31CyqkOEw=', 999.00, 10),

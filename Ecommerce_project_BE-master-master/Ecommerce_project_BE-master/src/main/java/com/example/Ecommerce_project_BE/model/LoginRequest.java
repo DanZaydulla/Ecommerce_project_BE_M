@@ -6,7 +6,7 @@ public class LoginRequest {
     @JsonProperty("username")
     private String username;
 
-    @JsonProperty("password_hash")
+    @JsonProperty("password")
     private String password;
 
     public LoginRequest(String username, String password) {
@@ -28,5 +28,24 @@ public class LoginRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public static class TestResponse {
+
+        private String response;
+
+        public TestResponse(){};
+
+        public TestResponse(String response) {
+            this.response = response;
+        }
+
+        public String getResponse() {
+            return response;
+        }
+
+        public void setResponse(String response) {
+            this.response = response;
+        }
     }
 }

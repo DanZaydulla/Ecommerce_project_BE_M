@@ -16,9 +16,11 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<?> createOrder(@RequestBody Order order) {
+        System.out.print("sadsd");
         try {
+
             orderService.saveOrder(order);
             return ResponseEntity.ok().body("Order created successfully.");
         } catch (Exception e) {

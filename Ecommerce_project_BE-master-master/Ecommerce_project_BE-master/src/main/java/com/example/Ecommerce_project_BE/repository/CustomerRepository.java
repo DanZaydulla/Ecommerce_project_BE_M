@@ -8,4 +8,5 @@ public interface CustomerRepository {
     void createCustomer(Customer customer);
     Customer findCustomerById(Integer customerId);
     List<Customer> getAllCustomers();
+    Customer findCustomerByUsername(String username);
 }

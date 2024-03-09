@@ -9,5 +9,6 @@ public interface CustomerService {
     void createCustomer(Customer customer);
     Customer findCustomerById(Integer customerId);
     List<Customer> getAllCustomers();
-//    Customer login(LoginRequest loginRequest);
+    Customer findCustomerByUsername(String username);
+
 }

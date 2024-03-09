@@ -28,5 +28,10 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.getAllCustomers();
     }
 
+    @Override
+    public Customer findCustomerByUsername(String username){
+        return customerRepository.findCustomerByUsername(username);
+    }
+
 }
 
